@@ -10,7 +10,7 @@ func main() {
 	NuevaConfiguracion.Driver = "postgres"
 	NuevaConfiguracion.TipoDriver = "PostgreSQL"
 	NuevaConfiguracion.DBName = "postgres"
-	NuevaConfiguracion.User = "usuario"
+	NuevaConfiguracion.User = "postgres"
 	NuevaConfiguracion.Host = "localhost"
 	NuevaConfiguracion.Port = "5432"
 	NuevaConfiguracion.DatabaseName = "esquemabd"

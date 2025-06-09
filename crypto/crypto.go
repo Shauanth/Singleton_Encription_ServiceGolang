@@ -20,7 +20,7 @@ type Config struct {
 
 // Nota: No hay ningun beneficio practico al reusar el mismo salt en cada ciphertext, mejorar esquema a futuro.
 func loadKey() ([]byte, error) {
-	file, err := os.ReadFile("/crip.json")
+	file, err := os.ReadFile("crypto/crip.json")
 	if err != nil {
 		return nil, err
 	}
