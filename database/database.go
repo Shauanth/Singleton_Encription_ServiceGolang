@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/Shauanth/Singleton_Encription_ServiceGolang.git/crypton"
+	"github.com/Shauanth/Singleton_Encription_ServiceGolang/crypton"
 	_ "github.com/lib/pq"
 )
 
