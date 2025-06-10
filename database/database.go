@@ -25,13 +25,12 @@ type DBManager struct {
 	DB *sql.DB
 }
 
-func NuevoDBManager(config Config) (*DBManager, error) {
+func NuevoDBManager(config Config, configuracion crypton.Config) (*DBManager, error) {
 	// Descifrar la contraseña usando el campo Password del struct Config
-	password, err := crypton.Decrypt(config.Password)
+	password, err := crypton.Decrypt(config.Password, configuracion)
 	if err != nil {
 		return nil, fmt.Errorf("error al descifrar password: %v", err)
 	}
-
 	connStr := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		config.Host,
@@ -40,7 +39,6 @@ func NuevoDBManager(config Config) (*DBManager, error) {
 		password, // Contraseña descifrada
 		config.DBName,
 	)
-
 	db, err := sql.Open(config.Driver, connStr)
 	if err != nil {
 		return nil, fmt.Errorf("error al conectar a PostgreSQL: %v", err)
