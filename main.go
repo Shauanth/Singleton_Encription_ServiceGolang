@@ -1,8 +1,9 @@
 package main
 
 import (
-	"Singleton_Encription_ServiceGolang/database"
 	"log"
+
+	"github.com/Shauanth/Singleton_Encription_ServiceGolang.git/database"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module Singleton_Encription_ServiceGolang
+module github.com/Shauanth/Singleton_Encription_ServiceGolang.git
 
 go 1.24.1
 

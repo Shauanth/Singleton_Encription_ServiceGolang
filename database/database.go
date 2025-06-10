@@ -1,10 +1,10 @@
 package database
 
 import (
-	"Singleton_Encription_ServiceGolang/crypto"
 	"database/sql"
 	"fmt"
 
+	"github.com/Shauanth/Singleton_Encription_ServiceGolang.git/crypton"
 	_ "github.com/lib/pq"
 )
 
@@ -27,7 +27,7 @@ type DBManager struct {
 
 func NuevoDBManager(config Config) (*DBManager, error) {
 	// Descifrar la contraseña usando el campo Password del struct Config
-	password, err := crypto.Decrypt(config.Password)
+	password, err := crypton.Decrypt(config.Password)
 	if err != nil {
 		return nil, fmt.Errorf("error al descifrar password: %v", err)
 	}
