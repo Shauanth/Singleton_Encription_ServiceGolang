@@ -1,5 +1,10 @@
 package crypton
 
+// crypton/crypto.go
+// Package crypton provides encryption and decryption functionalities.
+// It uses AES-GCM for secure encryption and decryption of strings.
+// It requires a configuration struct that contains the encryption key and salt.
+// It is designed to be used in conjunction with a database manager to handle encrypted passwords.
 import (
 	"crypto/aes"
 	"crypto/cipher"
@@ -11,6 +16,7 @@ import (
 	"io"
 )
 
+// Config representa la configuración para el cifrado
 type Config struct {
 	EncryptionKey string `json:"encryption_key"`
 	Salt          string `json:"salt"`
@@ -28,6 +34,7 @@ func loadKey(configuracion Config) ([]byte, error) {
 	return key, nil
 }
 
+// Encrypt cifra un texto usando AES-GCM
 func Encrypt(plaintext string, configuracion Config) (string, error) {
 	plaintextBytes := []byte(plaintext)
 	key, err := loadKey(configuracion)
@@ -50,6 +57,7 @@ func Encrypt(plaintext string, configuracion Config) (string, error) {
 	return base64.StdEncoding.EncodeToString(cipherText), nil
 }
 
+// Decrypt descifra un texto cifrado usando AES-GCM
 func Decrypt(ciphertext string, configuracion Config) (string, error) {
 	ciphertextBytes, err := base64.StdEncoding.DecodeString(ciphertext)
 	if err != nil {
