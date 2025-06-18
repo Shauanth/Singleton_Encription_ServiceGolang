@@ -32,7 +32,7 @@ func NuevoDBManager(config Config, configuracion crypton.Config) (*DBManager, er
 		return nil, fmt.Errorf("error al descifrar password: %v", err)
 	}
 	connStr := fmt.Sprintf(
-		"host=%s port=%s user=%s password=%s dbname=%s sslmode=require ",
+		"host=%s port=%s user=%s password=%s dbname=%s sslmode=require",
 		config.Host,
 		config.Port,
 		config.User,
