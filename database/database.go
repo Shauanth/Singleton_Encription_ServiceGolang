@@ -43,7 +43,7 @@ func NuevoDBManager(config Config, configuracion crypton.Config) (*DBManager, er
 	if err != nil {
 		return nil, fmt.Errorf("error al conectar a PostgreSQL: %v", err)
 	}
-	_, err = db.Exec(fmt.Sprintf("SET search_path TO '%s', public", config.DatabaseName))
+	_, err = db.Exec(fmt.Sprintf("SET search_path TO '%s', public@%s", config.DatabaseName, config.DBName))
 	if err != nil {
 		return nil, fmt.Errorf("error al configurar search_path: %v", err)
 	}
